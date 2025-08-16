@@ -4,19 +4,19 @@
 It models disease states as multilayer networks, aligns regulatory shifts across states, and identifies genes with evolving regulatory roles.
 
 ## Highlights:
-**Dynamic biomarker discovery:** Identifies state-specific genes with shifting regulatory roles during cancer progression.
+- **Dynamic biomarker discovery:** Identifies state-specific genes with shifting regulatory roles during cancer progression.
 
-**Multilayer network modeling:** Encodes each disease state as a separate layer, integrating gene expression with prior biological interactions.
+- **Multilayer network modeling:** Encodes each disease state as a separate layer, integrating gene expression with prior biological interactions.
 
-**Cross-state alignment:** Uses Gromov–Wasserstein optimal transport to quantify structural shifts of genes across disease states.
+- **Cross-state alignment:** Uses Gromov–Wasserstein optimal transport to quantify structural shifts of genes across disease states.
 
-**Dynamic Network Index (DNI):** Introduces a new metric to capture regulatory variability and prioritize dynamic network biomarkers.
+- **Dynamic Network Index (DNI):** Introduces a new metric to capture regulatory variability and prioritize dynamic network biomarkers.
 
-**Deep learning integration:** Combines Graph Attention Networks (GATs) and deep neural networks (DNNs) for contextual embedding and disease state classification.
+- **Deep learning integration:** Combines Graph Attention Networks (GATs) and deep neural networks (DNNs) for contextual embedding and disease state classification.
 
-**Robust validation:** Demonstrated superior performance on simulated and real single-cell gastric adenocarcinoma datasets, outperforming existing multilayer ranking approaches.
+- **Robust validation:** Demonstrated superior performance on simulated and real single-cell gastric adenocarcinoma datasets, outperforming existing multilayer ranking approaches.
 
-**Biological relevance:** Detects genes that reflect meaningful rewiring of gene regulation, providing insight into molecular drivers of cancer progression.
+- **Biological relevance:** Detects genes that reflect meaningful rewiring of gene regulation, providing insight into molecular drivers of cancer progression.
 
 
 
