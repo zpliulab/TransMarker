@@ -1,7 +1,9 @@
 # TransMarker: Unveiling dynamic network biomarkers in cancer progression through cross-state graph alignment and optimal transport
 
-**TransMarker** is a computational framework for detecting dynamic biomarkers in cancer progression using single-cell data.  
-It models disease states as multilayer networks, aligns regulatory shifts across states, and identifies genes with evolving regulatory roles.
+**TransMarker** is a computational framework for detecting dynamic biomarkers in cancer progression using single-cell data. It models disease states as multilayer networks, aligns regulatory shifts across states, and identifies genes with evolving regulatory roles.
+
+If you have any questions about NetWalkRank, please directly contact the corresponding author Prof. Zhi-Ping Liu with the E-mail: zpliu@sdu.edu.cn
+
 
 ## Highlights:
 - **Dynamic biomarker discovery:** Identifies state-specific genes with shifting regulatory roles during cancer progression.
@@ -17,6 +19,7 @@ It models disease states as multilayer networks, aligns regulatory shifts across
 - **Robust validation:** Demonstrated superior performance on simulated and real single-cell gastric adenocarcinoma datasets, outperforming existing multilayer ranking approaches.
 
 - **Biological relevance:** Detects genes that reflect meaningful rewiring of gene regulation, providing insight into molecular drivers of cancer progression.
+
 
 
 
