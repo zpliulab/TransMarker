@@ -25,20 +25,20 @@ If you have any questions about NetWalkRank, please directly contact the corresp
 
 In the Data directory, we provide only the essential files required to run the code. The datasets, which were obtained from publicly available sources, are introduced and referenced in the paper, along with the respective website links where they can be accessed.
 
+## R and Python Code for TransMarker
 
-## R and Python Code to TransMarker:
+The numbered folders **(1)–(9)** correspond to the sequential workflow of TransMarker.  
 
-The serial number (1) (2) ... (9) represents the order in which the program runs in our work.
+- **(1)** Preparation of simulation data, including preprocessing scripts and simulation data files.  
+- **(2)** Preprocessing of real datasets and storage of intermediate results.  
+- **(3)** R and Python scripts to construct disease states as network layers for both simulation and real data.  
+- **(4)** Embedding scripts for generating representations of each network layer.  
+- **(5)** Alignment process for comparing layers across states (simulation and real data).  
+- **(6)** Biomarker identification for detecting transition genes in both simulation and real data.  
+- **(7)** Python code for multi-class disease state classification.  
+- **(8)** Benchmarking scripts for comparison with baseline and state-of-the-art methods.  
+- **(9)** R scripts for visualization of all results.  
 
-- (1) Code for prepare simulation data and preprocess on simulation data and simulation data files.
-- (2) Preprocess code for real data and results of this step.
-- (3) R and Python code to prepare states of disease as network's layers for both simulation and real data.
-- (4) Embedding process code for embedding layers.
-- (5) Alignment Process code for both simulation and real data.
-- (6) Biomarker Identification code for both simulation and real data.
-- (7) Multi-Class classification Python code.
-- (8) Codes for comparision with other similar and baseline methods.
-- (9) R code for visualize all results.
 
 
 
