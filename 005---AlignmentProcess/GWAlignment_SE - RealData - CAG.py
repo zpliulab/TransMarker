@@ -3,13 +3,12 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_distances
 
 
-GN = 'CD8'
-ST1= 'N'  # 'N', 'HGIN', 'INF', 'Stage_I', 'Stage_II', 'Stage_III'
-ST2= 'HGIN'
-ST3= 'INF'
-ST4= 'Stage_I'
-ST5= 'Stage_II'
-ST6= 'Stage_III'
+GN = 'CD4'
+ST1= 'NAT'
+ST2= 'CAG'
+ST3= 'IM'
+ST4= 'PGAC'
+ST5= 'Metastasis'
 path='/home/fatemeh/ThirdObject'
 
 # Load embeddings for four stages
@@ -18,14 +17,12 @@ E2 = np.loadtxt(path+'/2.GraphEmbedding/Output/Reg_embeddings_W_stage'+ ST2 + '_
 E3 = np.loadtxt(path+'/2.GraphEmbedding/Output/Reg_embeddings_W_stage'+ ST3 + '_' + GN + '.txt', delimiter=" ")
 E4 = np.loadtxt(path+'/2.GraphEmbedding/Output/Reg_embeddings_W_stage'+ ST4 + '_' + GN + '.txt', delimiter=" ")
 E5 = np.loadtxt(path+'/2.GraphEmbedding/Output/Reg_embeddings_W_stage'+ ST5 + '_' + GN + '.txt', delimiter=" ")
-E6 = np.loadtxt(path+'/2.GraphEmbedding/Output/Reg_embeddings_W_stage'+ ST6 + '_' + GN + '.txt', delimiter=" ")
 
 print("Min and Max of E1:", np.min(E1), np.max(E1))
 print("Min and Max of E2:", np.min(E2), np.max(E2))
 print("Min and Max of E3:", np.min(E3), np.max(E3))
 print("Min and Max of E4:", np.min(E4), np.max(E4))
 print("Min and Max of E5:", np.min(E5), np.max(E5))
-print("Min and Max of E6:", np.min(E6), np.max(E6))
 
 # Compute distance matrices
 #C1 = np.linalg.norm(E1[:, None] - E1, axis=2)
@@ -40,14 +37,12 @@ C2 = cosine_distances(E2)
 C3 = cosine_distances(E3)
 C4 = cosine_distances(E4)
 C5 = cosine_distances(E5)
-C6 = cosine_distances(E6)
 
 print("Min and Max of C1:", np.min(C1), np.max(C1))
 print("Min and Max of C2:", np.min(C2), np.max(C2))
 print("Min and Max of C3:", np.min(C3), np.max(C3))
 print("Min and Max of C4:", np.min(C4), np.max(C4))
-print("Min and Max of C5:", np.min(C5), np.max(C5))
-print("Min and Max of C6:", np.min(C6), np.max(C6))
+print("Min and Max of C5:", np.min(C5), np.max(C4))
 
 print("Normalize")
 # Normalize distances
@@ -56,10 +51,10 @@ print("Normalize")
 
 # Add a small constant to avoid division by zero during normalization
 epsilon = 1e-6
-C1, C2, C3, C4, C5, C6 = [C + epsilon for C in [C1, C2, C3, C4, C5, C6]]
+C1, C2, C3, C4 = [C + epsilon for C in [C1, C2, C3, C4]]
 
 # Normalize distances
-C1, C2, C3, C4, C5, C6 = [C / (np.std(C) + 1e-6) for C in [C1, C2, C3, C4, C5, C6]]
+C1, C2, C3, C4 = [C / (np.std(C) + 1e-6) for C in [C1, C2, C3, C4]]
 
 
 
@@ -67,8 +62,7 @@ print("Min and Max of C1:", np.min(C1), np.max(C1))
 print("Min and Max of C2:", np.min(C2), np.max(C2))
 print("Min and Max of C3:", np.min(C3), np.max(C3))
 print("Min and Max of C4:", np.min(C4), np.max(C4))
-print("Min and Max of C5:", np.min(C5), np.max(C5))
-print("Min and Max of C6:", np.min(C6), np.max(C6))
+print("Min and Max of C5:", np.min(C4), np.max(C4))
 
 print("C1 sample:\n", C1[:5, :5])
 print("C2 sample:\n", C2[:5, :5])
@@ -108,7 +102,7 @@ def compute_gromov_wasserstein(C_source, C_target, epsilon=1e-2, max_iter=500):
 
 # Compute transport plans for consecutive cost matrices
 gw_matrices = []
-C_matrices = [C1, C2, C3, C4, C5, C6]
+C_matrices = [C1, C2, C3, C4, C5]
 
 print(f"C4 shape: {C_matrices[3].shape}, C5 shape: {C_matrices[4].shape}")
 print("C4 contains NaN:", np.isnan(C_matrices[3]).any())
@@ -168,7 +162,7 @@ print(alignment_scores)
 
 
 # Save alignment scores
-np.savetxt('./ESCC_gw_cumulative_alignment_Reg_'+GN+'.csv', alignment_scores, delimiter=",")
+np.savetxt('./gw_cumulative_alignment_Reg_'+GN+'.csv', alignment_scores, delimiter=",")
 print("Cumulative GW alignment computed!")
 
 
