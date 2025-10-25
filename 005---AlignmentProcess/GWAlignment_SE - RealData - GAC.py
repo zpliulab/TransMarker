@@ -71,8 +71,8 @@ print("Mean of C2:", np.mean(C2), "Std of C2:", np.std(C2))
 
 # Compute GW alignments
 
-
-def compute_gromov_wasserstein(C_source, C_target, epsilon=5e-4, max_iter=500):
+##epsilon  1e-3, 5e-3, 1e-2, 5e-2, 1e-1
+def compute_gromov_wasserstein(C_source, C_target, epsilon=1e-2, max_iter=500):
     """
     Computes the Gromov-Wasserstein transport plan between two cost matrices.
 
