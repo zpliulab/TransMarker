@@ -1,4 +1,5 @@
 # [TransMarker: Unveiling dynamic network biomarkers in cancer progression through cross-state graph alignment and optimal transport](https://github.com/zpliulab/TransMarker)
+![TransMarker Framework](GraphicalAbstract.png)
 
 **TransMarker** is a computational framework for detecting dynamic biomarkers in cancer progression using single-cell data. It models disease states as multilayer networks, aligns regulatory shifts across states, and identifies genes with evolving regulatory roles.
 
